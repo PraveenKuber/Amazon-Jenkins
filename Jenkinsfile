@@ -5,7 +5,7 @@ pipeline {
 
         stage('pull') {
             steps {
-                git 'https://github.com/PraveenKuber/Amazon.git'
+                git 'https://github.com/PraveenKuber/Amazon-Jenkins.git'
             }
         }
 
