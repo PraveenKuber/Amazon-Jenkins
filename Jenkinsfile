@@ -11,13 +11,13 @@ pipeline {
 
         stage('compile') {
             steps {
-                sh 'cd Amazon && mvn compile'
+                sh 'mvn compile'
             }
         }
 
         stage('build') {
             steps {
-                 sh 'cd Amazon && mvn clean install'
+                 sh 'mvn clean install'
             }
         }
 
