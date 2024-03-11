@@ -14,16 +14,17 @@ pipeline {
             }
         }
 
-        
         stage('build') {
             steps {
                  sh 'mvn clean install'
             }
         }
-
+        stage('test) {
+              steps {
+                  sh 'mvn clean test'
+              }
     }
-
-  post{
+ post{
     
   failure{
        echo 'Failure in the build'
