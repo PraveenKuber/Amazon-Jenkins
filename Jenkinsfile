@@ -18,9 +18,6 @@ pipeline {
                  sh 'mvn clean install'
             }
         }
-
-    }
-
   post{
     
   failure{
