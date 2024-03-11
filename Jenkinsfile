@@ -2,16 +2,14 @@ pipeline {
     agent any
     stages {
 
-        stage('pull') {
+        stage(pull) {
             steps {
                 git branch: 'main', url: 'https://github.com/PraveenKuber/Amazon-Jenkins.git'
             }
         }
 
-        stage('compile') {
-            steps {
-                sh 'mvn compile'
-            }
+        stage(compile) {
+            
         }
 
         
