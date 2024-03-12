@@ -4,7 +4,7 @@ pipeline {
 
         stage('pull') {
             steps {
-                git branch: 'main0.0', url: 'https://github.com/sathi031998/Amazon-Jenkins.git'
+                git branch: 'main', url: 'https://github.com/sathi031998/Amazon-Jenkins.git'
             }
         }
         stage('compile') {
