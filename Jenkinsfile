@@ -23,7 +23,7 @@ pipeline {
               steps {
                   sh 'mvn clean test'
               }
-    }
+    
  post{
     
   failure{
@@ -33,4 +33,6 @@ pipeline {
   }
 
 
+}
+}
 }
