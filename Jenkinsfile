@@ -4,7 +4,7 @@ pipeline {
 
         stage('checkout') {
             steps {
-                git Branch: 'main2.0', url: 'https://github.com/Varunkumar2698/Amazon-Jenkins.git'
+                git 'https://github.com/Varunkumar2698/Amazon-Jenkins.git'
             }
         }  
         stage('compile') {
