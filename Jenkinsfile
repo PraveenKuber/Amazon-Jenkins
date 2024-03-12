@@ -11,6 +11,7 @@ pipeline {
         stage('compile') {
             steps {
                 sh 'mvn compile'
+                echo ' this is main3.0 branch'
             }
         }
 
