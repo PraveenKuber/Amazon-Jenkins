@@ -12,19 +12,20 @@ pipeline {
                 sh 'mvn compile'
             }
         } 
+            
         stage('build') {
             steps {
                 sh 'mvn clean install'
             }
         }  
-    }
 
           post{
             
-          failure{
-               echo 'Failure in the build'
+            failure{
+                 echo 'Failure in the build'
            }
         
           }
-    
-}
+      }
+    }
+
