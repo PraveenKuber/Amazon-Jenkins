@@ -29,7 +29,7 @@ pipeline {
             // Send email notification on success
             emailext subject: 'Pipeline Successful',
                       body: 'Your pipeline has completed successfully.',
-                      to: 'tsathisha03@gmail.com'
+                      to: 'sathishat3@gmail.com'
         }
           failure {
             // Send email notification on failure
