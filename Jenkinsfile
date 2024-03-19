@@ -1,24 +1,28 @@
 pipeline {
-	agent any
-	stages {
-		stage('Checkout') {
+    agent any
+    stages {
+
+        stage('pull') {
             steps {
-                // Checkout the feature branch
                 git branch: 'main', url: 'https://github.com/mounasetty/Amazon-Jenkins.git'
             }
         }
-		stage ('build') {
-			steps {
-				sh 'mvn clean install'
-			}
-		
-		}
-		stage ('test') {
-			
-			steps {
-				sh 'mvn test'
-			}
-	
-	}
-}
+        stage('compile') {
+            steps {
+                sh 'mvn compile'
+            }
+        }    
+        stage('build') {
+            steps {
+                 sh 'mvn clean install'
+            }
+        }
+    }
+  post{
+    
+  failure{
+       echo 'Failure in the build'
+   }
+
+  }
 }
