@@ -1,15 +1,19 @@
 pipeline {
-    agent any
+   angent any
     stages {
 
         stage('pull') {
             steps {
                 git branch: 'main', url: 'https://github.com/PraveenKuber/Amazon-Jenkins.git'
             }
-        }
-        stage('compile') {
+        }  
+
+
+
+        
+        stage('install') {
             steps {
-                sh 'mvn compile'
+                sh 'mvn clean install'
             }
         }
 
@@ -17,7 +21,8 @@ pipeline {
         
         stage('build') {
             steps {
-                 sh 'mvn clean install'
+                 sh 'docker build -f Dockerfile .'
+ 
             }
         }
 
