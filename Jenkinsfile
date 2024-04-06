@@ -1,39 +1,31 @@
 pipeline {
-   angent any
-    stages {
+    agent any
 
-        stage('pull') {
+    stages {
+        stage('Pull') {
             steps {
                 git branch: 'main', url: 'https://github.com/PraveenKuber/Amazon-Jenkins.git'
             }
-        }  
+        }
 
-
-
-        
-        stage('install') {
+        stage('Install') {
             steps {
                 sh 'mvn clean install'
             }
         }
 
-        
-        stage('build') {
+        stage('Build Docker Image') {
             steps {
-                 sh 'docker build -f Dockerfile .'
- 
+                script {
+                    docker.build('my-image', '.')
+                }
             }
         }
-
     }
 
-  post{
-    
-  failure{
-       echo 'Failure in the build'
-   }
-
-  }
-
-
+    post {
+        failure {
+            echo 'Failure in the build'
+        }
+    }
 }
