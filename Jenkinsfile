@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+
     stages {
 
         stage('pull') {
@@ -20,7 +20,8 @@ pipeline {
         
         stage('build') {
             steps {
-                 sh 'docker build .'
+                 sh 'docker build -f Dockerfile .'
+ 
             }
         }
 
