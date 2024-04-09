@@ -1,7 +1,5 @@
 pipeline {
-    agent {
-        label 'windowsagent'
-    }
+    agent any
     stages {
 
         stage('pull') {
@@ -9,9 +7,7 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/Varunkumar2698/Amazon-Jenkins.git'
             }
         }
-
-
-        
+    
         stage('compile') {
             steps {
                 sh 'mvn compile'
