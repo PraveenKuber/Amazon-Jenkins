@@ -26,11 +26,6 @@ git branch: 'main', url: 'https://github.com/druti33/Amazon-Jenkins-new.git'
                 sh 'docker build -t myappimage:latest .'
             }
         }
-    }
- 
-    post {
-        always {
-            cleanWs()
-        }
-    }
+    } 
+    
 }
