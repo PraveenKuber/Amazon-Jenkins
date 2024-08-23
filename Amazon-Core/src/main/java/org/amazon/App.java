@@ -2,7 +2,6 @@ package org.amazon;
 
 /**
  * Hello world!
- *
  */
 public class App 
 {
