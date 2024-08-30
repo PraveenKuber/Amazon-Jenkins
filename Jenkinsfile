@@ -5,19 +5,7 @@ pipeline {
 
         stage('pull') {
             steps {
-                git branch: 'main', url: 'https://github.com/PraveenKuber/Amazon-Jenkins.git'
-            }
-        }
-
-        stage('compile') {
-            steps {
-                sh 'mvn compile'
-            }
-        }
-
-       stage('test') {
-            steps {
-                sh 'mvn test'
+                git branch: 'parbo', url: 'https://github.com/PraveenKuber/Amazon-Jenkins.git'
             }
         }
 
@@ -26,7 +14,6 @@ pipeline {
                  sh 'mvn clean install'
             }
         }
-
 
     }
 
