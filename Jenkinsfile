@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    environment {
+        // Use PATH+EXTRA to append to PATH properly
+        PATH+EXTRA = "/opt/homebrew/bin:/usr/bin:/bin"
+    }
     stages {
 
         stage('pull') {
