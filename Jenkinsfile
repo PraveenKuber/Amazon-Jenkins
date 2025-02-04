@@ -21,7 +21,7 @@ pipeline {
                 sh 'mvn test'
             }
         }
-        stage('build start') {
+        stage('buildstart') {
             steps {
                 sh 'echo "Build sarts"'
             }
@@ -42,7 +42,7 @@ pipeline {
   }
     
   failure{
-       echo 'Failure in the build'
+       echo 'build failure'
    }
 
   }
