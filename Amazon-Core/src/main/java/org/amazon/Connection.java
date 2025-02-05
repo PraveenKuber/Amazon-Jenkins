@@ -2,7 +2,7 @@ package org.amazon;
 
 public class Connection {
     /*Object creation declaration*/
-    private static Connection connection=null
+    private static Connection connection=null;
 
     /*Private constructor*/
     private Connection(){
