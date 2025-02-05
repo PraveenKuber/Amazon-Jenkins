@@ -11,8 +11,6 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/PraveenKuber/Amazon-Jenkins.git'
             }
         }
-
-        
       
         stage('build') {
             steps {
