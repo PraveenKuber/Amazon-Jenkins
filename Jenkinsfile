@@ -26,17 +26,4 @@ pipeline {
         
     }
 
-  post{
-
-  success{
-     echo 'Build success'
-  }
-    
-  failure{
-       echo 'Failure in the build'
-   }
-
-  }
-
-
-}
+  
