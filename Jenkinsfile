@@ -1,9 +1,9 @@
 pipeline {
     agent any
-//environment {
-  //      Use PATH+EXTRA to append to PATH properly
-    //   PATH = "/usr/bin:/bin:/opt/homebrew/bin"
-   //}
+environment {
+ //     Use PATH+EXTRA to append to PATH properly
+   PATH = "/usr/bin:/bin:/opt/homebrew/bin"
+}
     stages {
 
         stage('pull') {
@@ -13,13 +13,13 @@ pipeline {
         }
         stage('compile') {
             steps {
-                bat 'mvn compile'
+                sh 'mvn compile'
             }
         }
 
         stage('build') {
             steps {
-                bat 'mvn clean install'
+                sh 'mvn clean install'
             }
         }
 
