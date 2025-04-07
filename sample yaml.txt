@@ -1,0 +1,43 @@
+---
+- hosts: [remote_vms]
+  become: true
+  tasks:
+    - name: Run the equivalent of apt-get update as a separate step
+      ansible.builtin.apt:
+        update_cache: yes
+    - name: Wait for apt lock to be released (if needed)
+      shell: while fuser /var/lib/dpkg/lock-frontend > /dev/null 2>&1; do sleep 1;
+        done
+      become: yes
+    - name: Install latest version of "openjdk-21-jdk" ignoring "install-recommends"
+      ansible.builtin.apt:
+        name: openjdk-21-jdk
+        state: latest
+        install_recommends: no
+    - name: Download Apache tomcat
+      ansible.builtin.get_url:
+        url: https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.102/bin/apache-tomcat-9.0.102.tar.gz
+        dest: /opt/tomcatserver/
+        mode: "0755"
+    - name: extract or untar the tomcat installation package
+      ansible.builtin.unarchive:
+        src: /opt/tomcatserver/apache-tomcat-9.0.102.tar.gz
+        dest: /opt/tomcatserver/
+        remote_src: yes
+    - name: Rename extracted directory
+      shell: mv /opt/tomcatserver/apache-tomcat-9.0.102 /opt/tomcatserver/tomcat
+      become: yes
+    - name: Remove the tar.gz file
+      shell: rm -r /opt/tomcatserver/apache-tomcat-9.0.102.tar.gz
+      become: yes
+
+    - name: Copy file
+      ansible.builtin.copy:
+        src: /home/naresh/Amazon/Amazon/Amazon-Web/target/Amazon.war
+        dest: /opt/tomcatserver/tomcat/webapps/
+        mode: "0755"
+
+    - name: Start tomcat
+      shell: |
+        cd /opt/tomcatserver/tomcat/bin
+        sudo sh startup.sh
