@@ -4,35 +4,20 @@ pipeline {
 
         stage('pull') {
             steps {
-                git branch: 'main', url: 'https://github.com/PraveenKuber/Amazon-Jenkins.git'
+                git branch: 'qa_4.0', url: 'https://github.com/PraveenKuber/Amazon-Jenkins.git'
             }
         }
-        stage('test') {
+        stage('test stage 2') {
             steps {
                 sh 'mvn test'
             }
         }
 
-        stage('build') {
+        stage('stage 3') {
             steps {
                  sh 'mvn clean install'
             }
         }
-
         
     }
-
-  post{
-
-  success{
-     echo 'Build success'
-  }
-    
-  failure{
-       echo 'Failure in the build'
-   }
-
-  }
-
-
 }
