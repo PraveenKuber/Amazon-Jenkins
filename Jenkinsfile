@@ -1,9 +1,9 @@
 pipeline {
     agent any
     stages {
-        stage('Build B') {
+        stage('Build C') {
             steps {
-                echo 'Running Pipeline for Branch B'
+                echo 'Running Pipeline for Branch C'
             }
         }
     }
