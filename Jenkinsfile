@@ -11,7 +11,7 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/PraveenKuber/Amazon-Jenkins.git'
             }
         }
-        stage('compile') {
+        stage('compile data') {
             steps {
                 sh 'mvn compile'
             }
