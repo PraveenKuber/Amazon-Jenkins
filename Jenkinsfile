@@ -6,7 +6,7 @@ pipeline {
     }
     stages {
 
-        stage('pull') {
+        stage('pull data') {
             steps {
                 git branch: 'main', url: 'https://github.com/PraveenKuber/Amazon-Jenkins.git'
             }
