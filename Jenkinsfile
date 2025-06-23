@@ -1,10 +1,9 @@
 pipeline {
     agent any
-    environment {
-        // Use PATH+EXTRA to append to PATH properly
-        PATH = "/usr/bin:/bin:/opt/homebrew/bin"
-    }
     stages {
+      feature-update-readme
+        stage('Build C') {
+
 
         stage('pull scm') {
             steps {
@@ -18,25 +17,10 @@ pipeline {
         }
 
         stage('build') {
+       main
             steps {
-                 sh 'mvn clean install'
+                echo 'Running Pipeline for Branch C'
             }
         }
-
-        
     }
-
-  post{
-
-  success{
-     echo 'Build success'
-  }
-    
-  failure{
-       echo 'Failure in the build'
-   }
-
-  }
-
-
 }
