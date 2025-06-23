@@ -16,7 +16,21 @@ pipeline {
                 sh 'mvn compile'
             }
         }
-
+         stage('test') {
+            steps {
+                sh 'mvn test'
+            }
+        }
+         stage('package') {
+            steps {
+                sh 'mvn package'
+            }
+        }
+         stage('verify') {
+            steps {
+                sh 'mvn verify'
+            }
+        }
         stage('build') {
             steps {
                  sh 'mvn clean install'
