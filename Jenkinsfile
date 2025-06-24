@@ -24,7 +24,7 @@ pipeline {
         }
 stage('deloy'){
    steps{
-       echo 'Deploying for branch-4'
+       echo 'Deploying for pr branch'
 }
 }
 
