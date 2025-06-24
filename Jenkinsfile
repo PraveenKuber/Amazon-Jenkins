@@ -33,7 +33,7 @@ pipeline {
   }
     
   failure{
-       echo 'Alert Failure in the build'
+       echo 'Alert, Failure in the build'
    }
 
   }
