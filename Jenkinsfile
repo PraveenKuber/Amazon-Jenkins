@@ -22,15 +22,19 @@ pipeline {
                  sh 'mvn clean install'
             }
         }
-        post{
-
-  success{
-     echo 'Build is successfull'
+          success{
+    mail(
+        to: 'deepa@gmail.com',
+        subject: "Build is successful"
+      )     
   }
     
   failure{
-       echo 'Alert, Failure in the build'
-   }
+       mail(
+       to: ‘deeps@gmail.com’, 
+       subject: “Build failed”
+    )
+    }
   
 }
   
