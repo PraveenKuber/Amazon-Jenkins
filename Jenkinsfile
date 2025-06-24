@@ -22,8 +22,18 @@ pipeline {
                  sh 'mvn clean install'
             }
         }
+        post{
 
-        
+  success{
+     echo 'Build is successfull'
+  }
+    
+  failure{
+       echo 'Alert, Failure in the build'
+   }
+  
+}
+  
     }
 
   }
