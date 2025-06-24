@@ -22,6 +22,7 @@ pipeline {
                  sh 'mvn clean install'
             }
         }
+    }
         post{ 
         success{
    echo 'Build is successful'     
@@ -35,4 +36,4 @@ pipeline {
   
     }
 
-  }
+  
