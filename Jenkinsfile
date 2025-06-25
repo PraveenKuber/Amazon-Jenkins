@@ -8,7 +8,7 @@ pipeline {
 
         stage('pull data') {
             steps {
-                git branch: 'main', url: 'https://github.com/skbasha-devops/Amazon-Jenkins'
+                git branch: 'staging', url: 'https://github.com/skbasha-devops/Amazon-Jenkins'
             }
         }
         stage('compile') {
