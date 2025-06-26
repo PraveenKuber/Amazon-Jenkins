@@ -17,7 +17,7 @@ pipeline {
             }
         }
 
-        stage('build') {
+        stage('build scm') {
             steps {
                  sh 'mvn clean install'
             }
