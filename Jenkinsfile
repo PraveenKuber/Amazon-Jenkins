@@ -8,7 +8,7 @@ pipeline {
             
         stage('pull scm') {
             steps {
-                git branch: 'main', url: 'https://github.com/PraveenKuber/Amazon-Jenkins.git'
+                git branch: 'qa_4', url: 'https://github.com/PraveenKuber/Amazon-Jenkins.git'
             }
         }
         stage('compile') {
@@ -17,9 +17,9 @@ pipeline {
             }
         }
 
-        stage('build') {
+        stage('test') {
             steps {
-                 sh 'mvn clean install'
+                 sh 'mvn test'
             }
         }
 
