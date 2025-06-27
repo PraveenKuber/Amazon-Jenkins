@@ -34,6 +34,7 @@ pipeline {
     
   failure{
        echo 'Failure in the build'
+      echo 'don't worry'
       
    }
 
