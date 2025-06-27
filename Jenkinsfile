@@ -11,12 +11,18 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/PraveenKuber/Amazon-Jenkins.git'
             }
         }
+
+	stage('Validate'){
+		steps{
+			sh 'mvn validate'
+		}
+	}
         stage('compile') {
             steps {
                 sh 'mvn compile'
             }
         }
-	stage('test1'){
+	stage('test'){
             steps {
 		   sh 'mvn test'
 		}
