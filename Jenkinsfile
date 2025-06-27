@@ -16,7 +16,7 @@ pipeline {
                 sh 'mvn compile'
             }
         }
-	stage('test'){
+	stage('test test'){
             steps {
 		   sh 'mvn test'
 		}
