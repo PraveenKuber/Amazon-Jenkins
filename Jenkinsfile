@@ -5,7 +5,7 @@ pipeline {
         PATH = "/usr/bin:/bin:/opt/homebrew/bin"
     }
     stages {
-
+            
         stage('pull scm') {
             steps {
                 git branch: 'main', url: 'https://github.com/PraveenKuber/Amazon-Jenkins.git'
@@ -16,6 +16,11 @@ pipeline {
                 sh 'mvn compile'
             }
         }
+	stage('test1'){
+            steps {
+		   sh 'mvn test'
+		}
+	}
 
         stage('build') {
             steps {
