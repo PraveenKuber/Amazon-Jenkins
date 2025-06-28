@@ -7,7 +7,7 @@ pipeline {
     }
 
     stages {
-        stage('Pull SCM ') {
+        stage('Pull SCM Test ') {
             steps {
                 echo 'Cloning from GitHub...'
                 git branch: 'qa_1', url: 'https://github.com/PraveenKuber/Amazon-Jenkins.git'
