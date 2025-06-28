@@ -1,8 +1,12 @@
 pipeline {
     agent any
+    environment {
+        // Use PATH+EXTRA to append to PATH properly
+        PATH = "/usr/bin:/bin:/opt/homebrew/bin"
+    }
     stages {
 
-        stage('pull') {
+        stage('pull data') {
             steps {
                 git branch: 'qa_4.0', url: 'https://github.com/PraveenKuber/Amazon-Jenkins.git'
             }
@@ -13,9 +17,8 @@ pipeline {
             }
         }
 
-        stage('stage 3') {
             steps {
-                 sh 'mvn clean install'
+                junit '**/target/surefire-reports/*.xml'
             }
         }
         
