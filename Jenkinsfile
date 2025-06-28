@@ -8,34 +8,19 @@ pipeline {
 
         stage('pull data') {
             steps {
-                git branch: 'main', url: 'https://github.com/PraveenKuber/Amazon-Jenkins.git'
+                git branch: 'qa_4.0', url: 'https://github.com/PraveenKuber/Amazon-Jenkins.git'
             }
         }
-        stage('compile') {
+        stage('test stage 2') {
             steps {
-                sh 'mvn compile'
+                sh 'mvn test'
             }
         }
 
-        stage('Test') {
             steps {
                 junit '**/target/surefire-reports/*.xml'
             }
         }
         
     }
-
-  post{
-
-  success{
-     echo 'Build success'
-  }
-    
-  failure{
-       echo 'Failure in the build'
-   }
-
-  }
-
-
 }
