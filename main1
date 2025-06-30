@@ -1,0 +1,15 @@
+pipeline {
+    agent any
+    stages {
+        stage('Build PROD') {
+            steps {
+                echo "🚀 Building Production App"
+            }
+        }
+    }
+    post {
+        success {
+            echo "✅ PROD pipeline successful"
+        }
+    }
+}
