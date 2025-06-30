@@ -36,7 +36,7 @@ pipeline {
   }
     
   failure{
-       mail to: abc.test.demo1234 @gmail.com',         
+        mail to: 'abc.test.demo1234@gmail.com',         
            subject:"FAILURE:Job'${env.JOB_NAME}[${env.BUILD_NUMBER}]'",           
            body: "Unfortunately, build failed: ${env.BUILD_URL}" 
    }
