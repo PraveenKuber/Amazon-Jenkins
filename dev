@@ -1,0 +1,15 @@
+pipeline {
+    agent any
+    stages {
+        stage('Build DEV') {
+            steps {
+                echo "🧪 This is DEV branch build"
+            }
+        }
+    }
+    post {
+        success {
+            echo "✅ DEV build successful"
+        }
+    }
+}
