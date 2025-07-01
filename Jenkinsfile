@@ -11,13 +11,13 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/PraveenKuber/Amazon-Jenkins.git'
             }
         }
-        stage('compile') {
+        stage('compile scm') {
             steps {
                 sh 'mvn compile'
             }
         }
 
-        stage('build') {
+        stage('build scm') {
             steps {
                  sh 'mvn clean install'
             }
