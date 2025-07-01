@@ -1,5 +1,5 @@
 pipeline {
-    agent {label 'linux'}
+    agent any
     environment {
         // Use PATH+EXTRA to append to PATH properly
         PATH = "/usr/bin:/bin:/opt/homebrew/bin"
