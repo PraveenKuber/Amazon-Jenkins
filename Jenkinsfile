@@ -1,25 +1,21 @@
 pipeline {
-    agent any
-    environment {
-        // Use PATH+EXTRA to append to PATH properly
-        PATH = "/usr/bin:/bin:/opt/homebrew/bin"
-    }
-    stages {
+    agent {label'windows-agent-pavani'}
+      stages {
 
         stage('pull scm new test') {
             steps {
-                git branch: 'main', url: 'https://github.com/PraveenKuber/Amazon-Jenkins.git'
+                git branch: 'main', url: 'https://github.com/Kidduu2123/Amazon-Jenkins.git'
             }
         }
         stage('compile') {
             steps {
-                sh 'mvn compile'
+                bat 'mvn compile'
             }
         }
 
         stage('build') {
             steps {
-                 sh 'mvn clean install'
+                 bat 'mvn clean install'
             }
         }
 
