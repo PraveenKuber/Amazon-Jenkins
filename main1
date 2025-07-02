@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage('Build PROD') {
+        stage('Build PROD NEW') {
             steps {
                 echo "🚀 Building Production App"
             }
