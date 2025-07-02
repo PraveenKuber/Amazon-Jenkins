@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage('Build DEV') {
+        stage('Build DEV New') {
             steps {
                 echo "🧪 This is DEV branch build"
             }
