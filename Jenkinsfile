@@ -6,9 +6,9 @@ pipeline {
     }
     stages {
 
-        stage('pull scm') {
+        stage('pull scm new') {
             steps {
-                git branch: 'main', url: 'https://github.com/PraveenKuber/Amazon-Jenkins.git'
+                git branch: 'main', url: 'https://github.com/babangol/Amazon-Jenkins.git'
             }
         }
         stage('compile') {
@@ -34,6 +34,7 @@ pipeline {
     
   failure{
        echo 'Failure in the build'
+      
    }
 
   }
